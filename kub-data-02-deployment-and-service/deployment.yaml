@@ -20,4 +20,6 @@ spec:
               name: story-volume
       volumes:
       - name: story-volume
-        emptyDir: {} # Lifecycle attached to Pod
+        # emptyDir: {} # Lifecycle attached to Pod
+        persistentVolumeClaim:
+          claimName: story-pvc
