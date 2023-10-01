@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: story-config
+data:
+  STORY_DIR: story
+  OWNER: harry

@@ -18,6 +18,22 @@ spec:
           volumeMounts:
             - mountPath: /app/story
               name: story-volume
+          env:
+          # # get single value from config
+          #   - name: STORY_DIR
+          #     valueFrom:
+          #       configMapKeyRef:
+          #         name: story-config
+          #         key: STORY_DIR
+          #   - name: OWNER
+          #     valueFrom:
+          #       configMapKeyRef:
+          #         name: story-config
+          #         key: OWNER
+          # get all value from config
+          envFrom:
+            - configMapRef:
+                name: story-config
       volumes:
       - name: story-volume
         # emptyDir: {} # Lifecycle attached to Pod

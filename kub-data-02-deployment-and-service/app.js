@@ -6,9 +6,16 @@ const bodyParser = require('body-parser');
 
 const app = express();
 
-const filePath = path.join(__dirname, 'story', 'text.txt');
+const storyDir = process.env.STORY_DIR
+const owner = process.env.OWNER
+
+const filePath = path.join(__dirname, storyDir, 'text.txt');
 
 app.use(bodyParser.json());
+
+app.get('/owner', (req, res) => {
+  return res.status(200).json({ owner });
+});
 
 app.get('/story', (req, res) => {
   fs.readFile(filePath, (err, data) => {
