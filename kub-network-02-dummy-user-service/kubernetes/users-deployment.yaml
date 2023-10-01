@@ -15,5 +15,6 @@ spec:
       containers:
         - name: users
           image: phuhung273/kub-hello-networking-user:latest
-        - name: auth
-          image: phuhung273/kub-hello-networking-auth:latest
+          env:
+            - name: AUTH_ADDRESS
+              value: auth-service
